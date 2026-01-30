@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ThemeToggle } from './components/ThemeToggle';
-import { AIAssistant } from './components/AIAssistant';
 import { 
   PERSONAL_INFO, 
   PROJECTS, 
@@ -468,8 +467,6 @@ const App: React.FC = () => {
           </p>
         </div>
       </footer>
-
-      <AIAssistant />
     </div>
   );
 };

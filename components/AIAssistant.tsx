@@ -1,11 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { askAIAssistant } from '../services/geminiService';
 
 export const AIAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'ai', text: string }[]>([]);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
@@ -13,18 +11,11 @@ export const AIAssistant: React.FC = () => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
 
-    const userMsg = query;
     setQuery('');
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
-    setLoading(true);
-
-    const response = await askAIAssistant(userMsg);
-    setMessages(prev => [...prev, { role: 'ai', text: response }]);
-    setLoading(false);
   };
 
   return (
@@ -52,11 +43,6 @@ export const AIAssistant: React.FC = () => {
                 </div>
               </div>
             ))}
-            {loading && (
-              <div className="flex justify-start">
-                <div className="bg-zinc-200 dark:bg-zinc-800 rounded-lg p-3 text-sm animate-pulse">...Thinking</div>
-              </div>
-            )}
             <div ref={chatEndRef} />
           </div>
 
