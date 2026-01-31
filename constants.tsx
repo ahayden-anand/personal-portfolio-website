@@ -7,11 +7,11 @@ export const PERSONAL_INFO = {
   role: "Computer Science Engineering Student | Aspiring Software Engineer",
   valueProp: "Building robust foundations in computer science while innovating at the intersection of AI, high-performance web development, and human-centric design.",
   bio: "I am a first-year Computer Science Engineering student at Karunya Institute of Technology and Sciences with a deep-seated interest in engineering scalable systems. My journey is defined by a blend of disciplined academic rigor and a curiosity for emerging technologies. I focus on bridging the gap between theoretical computer science and practical, real-world application, constantly seeking to refine my problem-solving toolkit through active building and community collaboration.",
-  email: "haydenanand9@gmail.com",
+  email: "ahayden.anand@gmail.com",
   phone: "+91 6380669179",
   linkedIn: "https://linkedin.com/in/haydenanand",
-  github: "https://github.com/haydenanand",
-  avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop"
+  github: "https://github.com/ahayden-anand",
+  avatar: "./public/assets/profile.png"
 };
 
 export const PROJECTS: Project[] = [
@@ -47,15 +47,15 @@ export const PROJECTS: Project[] = [
 export const SKILLS: SkillCategory[] = [
   {
     title: "Core Programming",
-    skills: ["C Programming", "Data Structures", "Algorithm Analysis", "Java (Fundamentals)"]
+    skills: ["C Programming", "Python", "Javascript", "Java (Fundamentals)"]
   },
   {
     title: "Web Technologies",
-    skills: ["HTML5 / CSS3", "Modern JavaScript", "Responsive Design", "Web Architecture"]
+    skills: ["HTML5 / CSS3", "JavaScript", "React", "Tailwind CSS","Bootstrap 5"]
   },
   {
     title: "AI & Tools",
-    skills: ["Prompt Engineering", "Gemini API", "Git & Version Control", "Linux Environment"]
+    skills: ["Gemini API", "Git & Version Control", "VS Code"]
   },
   {
     title: "Soft Skills",
@@ -66,8 +66,8 @@ export const SKILLS: SkillCategory[] = [
 export const EXPERIENCES: Experience[] = [
   {
     id: "e1",
-    company: "IT Hub – Karunya Institute of Technology",
-    role: "IT Hub Trainee",
+    company: "Inkflow Creative ",
+    role: "Internship Trainee",
     period: "2025 – Present",
     description: [
       "Engaged in intensive CodeLab technical sessions, mastering industry-standard web development workflows.",
@@ -88,8 +88,20 @@ export const EXPERIENCES: Experience[] = [
     ],
     technologies: ["Product Thinking", "Peer Mentorship", "Technical Innovation"]
   },
-  {
+   {
     id: "e3",
+    company: "IT Hub – Karunya Institute of Technology",
+    role: "IT Hub Trainee",
+    period: "2025 – Present",
+    description: [
+      "Engaged in intensive CodeLab technical sessions, mastering industry-standard web development workflows.",
+      "Contributor to the EduHub portal, focusing on optimizing the student experience through technical implementation.",
+      "Collaborating on live projects to bridge the gap between academic theory and production-grade software."
+    ],
+    technologies: ["CSS Architecture", "Frontend Performance", "Team Collaboration"]
+  },
+  {
+    id: "e4",
     company: "Digital Campus 2.0",
     role: "HackSprint Participant",
     period: "2025",

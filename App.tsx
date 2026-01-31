@@ -76,7 +76,7 @@ const App: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
               </span>
-              Engineering the Future
+              Building the Future
             </div>
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9] dark:text-white">
               {PERSONAL_INFO.name}
@@ -97,7 +97,7 @@ const App: React.FC = () => {
           <div className="w-64 h-64 md:w-96 md:h-96 relative shrink-0">
             <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full"></div>
             <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-zinc-100 dark:border-zinc-900 shadow-2xl transition-transform duration-500 hover:rotate-2">
-               <img src={PERSONAL_INFO.avatar} alt={PERSONAL_INFO.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+               <img src={PERSONAL_INFO.avatar} alt={PERSONAL_INFO.name} className="w-full h-full object-cover transition-all duration-700" />
                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 to-transparent"></div>
             </div>
           </div>
@@ -109,7 +109,7 @@ const App: React.FC = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-start relative z-10">
           <div>
-            <h2 className="text-4xl font-black mb-10 tracking-tight">Curiosity Driven Growth<span className="text-accent">.</span></h2>
+            <h2 className="text-4xl font-black mb-10 tracking-tight">Executive Summary<span className="text-accent">.</span></h2>
             <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-12 leading-relaxed font-light italic">
               {PERSONAL_INFO.bio}
             </p>
@@ -151,7 +151,7 @@ const App: React.FC = () => {
       {/* Projects Section */}
       <section id="work" className="py-32 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-4xl font-black mb-6 tracking-tight">Technical Prototypes<span className="text-accent">.</span></h2>
+          <h2 className="text-4xl font-black mb-6 tracking-tight">My Projects<span className="text-accent">.</span></h2>
           <p className="text-xl text-zinc-500 max-w-2xl mx-auto">A documentation of my transition from academic theory to professional software practice.</p>
         </div>
         
@@ -168,18 +168,13 @@ const App: React.FC = () => {
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                <p className="text-sm text-zinc-500 mb-6 flex-1 font-medium leading-relaxed italic">"{project.problem}"</p>
-                <div className="text-sm mb-8 bg-zinc-50 dark:bg-zinc-900 p-4 rounded-xl">
-                  <p className="font-black text-[10px] uppercase tracking-widest text-accent mb-2">Outcome</p>
-                  <p className="text-zinc-600 dark:text-zinc-300 leading-snug font-medium">{project.impact}</p>
-                </div>
-                <div className="flex items-center justify-between pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <button className="text-[13px] font-black uppercase tracking-widest hover:text-accent transition-colors flex items-center gap-2">
-                    Case Study
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                  </button>
-                  <a href={PERSONAL_INFO.github} className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <p className="text-sm text-zinc-500 flex-1 font-medium leading-relaxed italic">"{project.problem}"</p>
+                <div className="flex items-center gap-4 pt-6 border-t border-zinc-100 dark:border-zinc-800">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="Live Demo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                  </a>
+                  <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                   </a>
                 </div>
               </div>
@@ -192,7 +187,7 @@ const App: React.FC = () => {
       <section id="journey" className="py-32 px-6 bg-zinc-100 dark:bg-zinc-900/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-black mb-4 tracking-tight">Active Involvement<span className="text-accent">.</span></h2>
+            <h2 className="text-4xl font-black mb-4 tracking-tight">Experience<span className="text-accent">.</span></h2>
             <p className="text-zinc-500 text-lg">Milestones of continuous learning and collaborative growth.</p>
           </div>
           <div className="space-y-16">
@@ -260,155 +255,163 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Professional Contact & Inquiry Portal */}
-      <section id="contact" className="py-48 px-6 relative overflow-hidden bg-white dark:bg-zinc-950">
-        {/* Futuristic Background Accents */}
-        <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-accent/5 blur-[160px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50"></div>
-        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-accent/5 blur-[140px] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none opacity-30"></div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-12 gap-20 items-start">
+      {/* Professional Contact Section */}
+      <section id="contact" className="py-32 px-6 relative bg-white dark:bg-zinc-950">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
             
-            {/* Left Column: Direct Communication Metadata */}
-            <div className="lg:col-span-5 space-y-12">
+            {/* Left Column: Contact Details */}
+            <div className="lg:col-span-5 space-y-10">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-accent/5 border border-accent/10">
-                  <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent">Active Protocol</span>
-                </div>
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none dark:text-white">
-                  Let's Sync <br /> <span className="text-accent">Talent.</span>
-                </h2>
-                <p className="text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-md">
-                  I am currently architecting the future as a first-year CSE student. Open for high-performance internships, research grants, and technical collaborations.
+                <h2 className="text-5xl md:text-6xl font-bold tracking-tight">Get In Touch</h2>
+                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Have a project in mind or want to collaborate? I'd love to hear from you. Reach out through any of these channels.
                 </p>
               </div>
 
-              {/* Recruitment Metadata Cards */}
-              <div className="grid gap-6">
-                <div className="p-8 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-accent/30 transition-all group shadow-sm hover:shadow-xl">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-6">Subject Availability</p>
-                  <div className="flex flex-wrap gap-3">
-                    {['Summer Internships', 'Technical Research', 'Open Source'].map(tag => (
-                      <span key={tag} className="px-4 py-1.5 bg-white dark:bg-zinc-950 rounded-full text-[10px] font-bold text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 group-hover:border-accent/20 transition-all">
-                        {tag}
-                      </span>
-                    ))}
+              {/* Contact Details */}
+              <div className="space-y-6">
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-1">Email</p>
+                    <a href={`mailto:${PERSONAL_INFO.email}`} className="text-lg font-bold text-zinc-900 dark:text-white hover:text-accent transition-colors break-all">
+                      {PERSONAL_INFO.email}
+                    </a>
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="flex items-center gap-6 group">
-                    <div className="w-16 h-16 rounded-[1.5rem] bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all transform hover:-rotate-6">
-                      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-1">Direct Transmission</p>
-                      <a href={`mailto:${PERSONAL_INFO.email}`} className="text-2xl font-bold hover:text-accent transition-colors break-all">
-                        {PERSONAL_INFO.email}
-                      </a>
-                    </div>
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                   </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-1">Phone</p>
+                    <p className="text-lg font-bold text-zinc-900 dark:text-white">{PERSONAL_INFO.phone}</p>
+                  </div>
+                </div>
 
-                  <div className="flex items-center gap-6 group">
-                    <div className="w-16 h-16 rounded-[1.5rem] bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all transform hover:rotate-6">
-                      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-1">Voice Protocol</p>
-                      <p className="text-2xl font-bold">{PERSONAL_INFO.phone}</p>
-                    </div>
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
+                    <div className="w-3 h-3 rounded-full bg-current animate-pulse"></div>
                   </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-1">Availability</p>
+                    <p className="text-lg font-bold text-zinc-900 dark:text-white">Open to internships & collaboration</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="pt-4">
+                <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-4">Interested In</p>
+                <div className="flex flex-wrap gap-2">
+                  {['Summer Internships', 'Technical Research', 'Open Source'].map(tag => (
+                    <span key={tag} className="px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 rounded-lg text-xs font-semibold text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Premium Inquiry Dashboard */}
+            {/* Right Column: Contact Form */}
             <div className="lg:col-span-7">
-              <div className="relative p-1 rounded-[3rem] bg-gradient-to-br from-zinc-200 to-transparent dark:from-zinc-800 dark:to-transparent shadow-[0_40px_100px_rgba(0,0,0,0.05)] transition-all">
-                <div className="bg-white dark:bg-zinc-950 p-10 md:p-14 rounded-[2.9rem] relative overflow-hidden">
-                  
-                  {/* Subtle Grainy Overlay for texture */}
-                  <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")'}}></div>
-
-                  {formStatus === 'sent' ? (
-                    <div className="text-center py-20 animate-in fade-in zoom-in duration-700">
-                      <div className="w-24 h-24 bg-accent/10 text-accent rounded-[2rem] flex items-center justify-center mx-auto mb-10 shadow-xl shadow-accent/10 border border-accent/20">
-                        <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
-                      </div>
-                      <h3 className="text-4xl font-black mb-4 tracking-tighter">Transmission Successful.</h3>
-                      <p className="text-zinc-500 font-medium text-lg max-w-sm mx-auto mb-12">Encryption complete. Your inquiry is now in the queue for Hayden's review.</p>
-                      <button onClick={() => setFormStatus('idle')} className="text-xs font-black uppercase tracking-widest text-accent hover:underline decoration-2 underline-offset-8 transition-all">Start New Session</button>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleContactSubmit} className="space-y-10 relative z-10">
-                      <div className="grid md:grid-cols-2 gap-10">
-                        <div className="space-y-4">
-                          <label className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 ml-2">Request Origin</label>
-                          <div className="relative group">
-                            <input required type="text" placeholder="Full Name" className="w-full px-8 py-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-bold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600" />
-                            <div className="absolute inset-0 rounded-2xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
-                          </div>
-                        </div>
-                        <div className="space-y-4">
-                          <label className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 ml-2">Contact Link</label>
-                          <div className="relative group">
-                            <input required type="email" placeholder="Email Address" className="w-full px-8 py-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-bold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600" />
-                            <div className="absolute inset-0 rounded-2xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="space-y-4">
-                        <label className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 ml-2">Session Subject</label>
-                        <div className="relative group">
-                          <input required type="text" placeholder="What are we building?" className="w-full px-8 py-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-bold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600" />
-                          <div className="absolute inset-0 rounded-2xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
-                        </div>
-                      </div>
-
-                      <div className="space-y-4">
-                        <label className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 ml-2">Inquiry Payload</label>
-                        <div className="relative group">
-                          <textarea required rows={5} placeholder="Describe the mission details..." className="w-full px-8 py-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-bold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 resize-none"></textarea>
-                          <div className="absolute inset-0 rounded-2xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col sm:flex-row items-center justify-between gap-10 pt-6">
-                        <div className="flex items-center gap-3">
-                          <div className="flex -space-x-3">
-                            {[1, 2, 3].map(i => (
-                              <div key={i} className={`w-8 h-8 rounded-full border-2 border-white dark:border-zinc-950 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center overflow-hidden`}>
-                                <div className="w-full h-full bg-accent/10 flex items-center justify-center text-[10px] font-black text-accent">{i}</div>
-                              </div>
-                            ))}
-                          </div>
-                          <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Step Process Verified</p>
-                        </div>
-
-                        <button 
-                          type="submit" 
-                          disabled={formStatus === 'sending'} 
-                          className="w-full sm:w-auto px-16 py-6 bg-accent hover:bg-accent-hover text-white rounded-[2rem] font-black uppercase tracking-[0.2em] text-[11px] transition-all shadow-2xl shadow-accent/30 flex items-center justify-center gap-4 hover:-translate-y-1 active:scale-95 disabled:opacity-70"
-                        >
-                          {formStatus === 'sending' ? (
-                            <>
-                              <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                              Syncing...
-                            </>
-                          ) : (
-                            <>
-                              Execute Connection
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                            </>
-                          )}
-                        </button>
-                      </div>
-                    </form>
-                  )}
+              {formStatus === 'sent' ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-accent/10 border border-accent/20">
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">Message Sent!</h3>
+                  <p className="text-zinc-600 dark:text-zinc-400 mb-6 text-lg">Thank you for reaching out. I'll get back to you soon.</p>
+                  <button onClick={() => setFormStatus('idle')} className="text-accent font-bold hover:underline text-sm">
+                    Send another message
+                  </button>
                 </div>
-              </div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div className="space-y-4">
+                    <label className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 ml-1">Full Name</label>
+                    <div className="relative group">
+                      <input 
+                        required 
+                        type="text" 
+                        className="w-full px-6 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      <label className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 ml-1">Email</label>
+                      <div className="relative group">
+                        <input 
+                          required 
+                          type="email" 
+                          className="w-full px-4 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                        />
+                        <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 ml-1">Phone</label>
+                      <div className="relative group">
+                        <input 
+                          type="tel" 
+                          className="w-full px-4 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                        />
+                        <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <label className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 ml-1">Subject</label>
+                    <div className="relative group">
+                      <input 
+                        required 
+                        type="text" 
+                        className="w-full px-6 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <label className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 ml-1">Message</label>
+                    <div className="relative group">
+                      <textarea 
+                        required 
+                        rows={4} 
+                        className="w-full px-6 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 resize-none"
+                      ></textarea>
+                      <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
+                    </div>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    disabled={formStatus === 'sending'}
+                    className="w-full px-8 py-3.5 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all disabled:opacity-60 flex items-center justify-center gap-3 shadow-lg shadow-accent/30 hover:shadow-accent/40 active:scale-95"
+                  >
+                    {formStatus === 'sending' ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -461,9 +464,6 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6 mt-20 pt-10 border-t border-zinc-100 dark:border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 italic">
             &copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. Karunya Institute of Technology and Sciences.
-          </p>
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
-            Handcrafted with Intelligence & Academic Rigor
           </p>
         </div>
       </footer>
