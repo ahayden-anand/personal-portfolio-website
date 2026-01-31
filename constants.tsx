@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   phone: "+91 6380669179",
   linkedIn: "https://linkedin.com/in/haydenanand",
   github: "https://github.com/ahayden-anand",
-  avatar: "./public/assets/profile.png"
+  avatar: "./assets/profile.png"
 };
 
 export const PROJECTS: Project[] = [
@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
   stack: ["React", "Tailwind CSS", "TypeScript", "JSX"],
   role: "Frontend Developer",
   impact: "Built a responsive, mobile-first portfolio to showcase projects, skills, and experience in a visually engaging format. Improved personal brand visibility and provided recruiters with a streamlined way to evaluate work and contact details.",
-  imageUrl: "./public/assets/project1.png"
+  imageUrl: "./assets/project1.png"
 },
   {
     id: "2",
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     stack: ["HTML5", "CSS3 (Grid/Flex)", "Modern UI Patterns"],
     role: "Product Designer",
     impact: "Built a sophisticated, high-performance web interface featuring complex layout transitions and optimized asset loading, ensuring a seamless luxury experience.",
-    imageUrl: "./public/assets/project2.png",
+    imageUrl: "./assets/project2.png",
   },
 
   {
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
   stack: ["React", "Express.js", "Node.js","MongoDB"],
   role: "Team Lead, Backend Developer",
   impact: "Developed a patient-centric appointment system that streamlined scheduling and reduced perceived waiting time by providing real-time appointment status, automated notifications, and optimized backend scheduling logic. Improved transparency and reduced missed appointments through clear status updates and validation flows.",
-  imageUrl: "./public/assets/project3.png",
+  imageUrl: "./assets/project3.png",
 }
 
 ];

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { ThemeToggle } from './components/ThemeToggle';
 import { 
   PERSONAL_INFO, 
@@ -12,9 +13,18 @@ import {
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(true);
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    // Initialize EmailJS with public key
+    const publicKey = (import.meta as ImportMeta & { env: Record<string, string> }).env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -42,14 +52,37 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('sending');
-    setTimeout(() => {
-      setFormStatus('sent');
-      const form = e.target as HTMLFormElement;
-      form.reset();
-    }, 2000);
+
+    if (formRef.current) {
+      try {
+        const formData = new FormData(formRef.current);
+        const templateParams = {
+          to_email: 'ahayden.anand@gmail.com',
+          from_name: formData.get('from_name'),
+          from_email: formData.get('from_email'),
+          phone: formData.get('phone') || 'Not provided',
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+        };
+
+        await emailjs.send(
+          'service_155853o',
+          'template_y8es49y',
+          templateParams
+        );
+
+        setFormStatus('sent');
+        formRef.current.reset();
+        setTimeout(() => setFormStatus('idle'), 4000);
+      } catch (error) {
+        console.error('Email send failed:', error);
+        setFormStatus('error');
+        setTimeout(() => setFormStatus('idle'), 4000);
+      }
+    }
   };
 
   return (
@@ -335,13 +368,14 @@ const App: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleContactSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleContactSubmit} className="space-y-6">
                   <div className="space-y-4">
                     <label className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 ml-1">Full Name</label>
                     <div className="relative group">
                       <input 
                         required 
                         type="text" 
+                        name="from_name"
                         className="w-full px-6 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                       />
                       <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
@@ -355,6 +389,7 @@ const App: React.FC = () => {
                         <input 
                           required 
                           type="email" 
+                          name="from_email"
                           className="w-full px-4 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                         />
                         <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
@@ -366,6 +401,7 @@ const App: React.FC = () => {
                       <div className="relative group">
                         <input 
                           type="tel" 
+                          name="phone"
                           className="w-full px-4 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                         />
                         <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
@@ -379,6 +415,7 @@ const App: React.FC = () => {
                       <input 
                         required 
                         type="text" 
+                        name="subject"
                         className="w-full px-6 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                       />
                       <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
@@ -391,6 +428,7 @@ const App: React.FC = () => {
                       <textarea 
                         required 
                         rows={4} 
+                        name="message"
                         className="w-full px-6 py-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-2 border-transparent focus:border-accent focus:bg-white dark:focus:bg-zinc-900 transition-all outline-none font-semibold text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 resize-none"
                       ></textarea>
                       <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity"></div>
@@ -406,6 +444,11 @@ const App: React.FC = () => {
                       <>
                         <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                         Sending...
+                      </>
+                    ) : formStatus === 'error' ? (
+                      <>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Failed to send
                       </>
                     ) : (
                       <>
