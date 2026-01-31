@@ -192,7 +192,7 @@ const App: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {PROJECTS.map((project) => (
             <div key={project.id} className="group rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-accent/40 transition-all flex flex-col hover:shadow-2xl">
-              <div className="relative h-60 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
                    <div className="flex flex-wrap gap-2">
@@ -200,17 +200,21 @@ const App: React.FC = () => {
                    </div>
                 </div>
               </div>
-              <div className="p-8 flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-sm text-zinc-500 flex-1 font-medium leading-relaxed italic">"{project.problem}"</p>
-                <div className="flex items-center justify-between pt-6 border-t border-zinc-100 dark:border-zinc-800">
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
                   <div className="flex items-center gap-4">
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="Live Demo">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                    </a>
-                    <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="GitHub">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                    </a>
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="Live Demo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="GitHub Repository">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                      </a>
+                    )}
                   </div>
                   <button onClick={() => setSelectedProject(project.id)} className="text-[12px] font-bold uppercase tracking-widest text-accent hover:underline transition-colors">View More</button>
                 </div>
@@ -345,7 +349,7 @@ const App: React.FC = () => {
               <div className="pt-4">
                 <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-4">Interested In</p>
                 <div className="flex flex-wrap gap-2">
-                  {['Summer Internships', 'Technical Research', 'Open Source'].map(tag => (
+                  {['Internships', 'Technical Research', 'Open Source','Collaborations'].map(tag => (
                     <span key={tag} className="px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 rounded-lg text-xs font-semibold text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800">
                       {tag}
                     </span>
@@ -564,12 +568,18 @@ const App: React.FC = () => {
                         </div>
 
                         <div className="flex gap-4 pt-6 border-t border-zinc-200 dark:border-zinc-800">
-                          <a href={project?.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all text-center">
-                            Live Demo
-                          </a>
-                          <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 border-2 border-zinc-200 dark:border-zinc-800 hover:border-accent text-zinc-900 dark:text-zinc-100 font-bold rounded-xl transition-all text-center">
-                            View Code
-                          </a>
+                          {project?.liveUrl ? (
+                            <a href={project?.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all text-center">
+                              Live Demo
+                            </a>
+                          ) : (
+                            <div className="flex-1"></div>
+                          )}
+                          {project?.githubUrl && (
+                            <a href={project?.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 border-2 border-zinc-200 dark:border-zinc-800 hover:border-accent text-zinc-900 dark:text-zinc-100 font-bold rounded-xl transition-all text-center">
+                              View Code
+                            </a>
+                          )}
                         </div>
                       </div>
                     </>
