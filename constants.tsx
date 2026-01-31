@@ -16,32 +16,34 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "1",
-    title: "EduHub Submission Portal",
-    problem: "Academic environments often suffer from fragmented submission workflows and poor mobile accessibility.",
-    stack: ["HTML5", "CSS3", "JavaScript", "System Architecture"],
-    role: "Lead Frontend Architect",
-    impact: "Designed a centralized repository for assignments that reduced submission friction by 40% in initial testing. Focused on a mobile-first responsive architecture to support students on the go.",
-    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop",
-  },
+  id: "1",
+  title: "Personal Portfolio Website",
+  problem: "Developers often struggle to present their skills, projects, and experience in a clear, professional, and easily accessible way across devices.",
+  stack: ["React", "Tailwind CSS", "TypeScript", "JSX"],
+  role: "Frontend Developer",
+  impact: "Built a responsive, mobile-first portfolio to showcase projects, skills, and experience in a visually engaging format. Improved personal brand visibility and provided recruiters with a streamlined way to evaluate work and contact details.",
+  imageUrl: "./public/assets/project1.png"
+},
   {
     id: "2",
-    title: "Vanguard Restaurant UI",
+    title: "Restaurant landing page UI",
     problem: "Traditional digital menus lack the high-fidelity branding and interactive feedback required for premium dining.",
     stack: ["HTML5", "CSS3 (Grid/Flex)", "Modern UI Patterns"],
     role: "Product Designer",
     impact: "Built a sophisticated, high-performance web interface featuring complex layout transitions and optimized asset loading, ensuring a seamless luxury experience.",
-    imageUrl: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "./public/assets/project2.png",
   },
+
   {
-    id: "3",
-    title: "Secure Access Flow",
-    problem: "Basic web forms often neglect critical accessibility standards and security UI affordances.",
-    stack: ["HTML5", "CSS3", "UX Research"],
-    role: "UX Engineer",
-    impact: "Researched and implemented a secure-access prototype that adheres to WCAG 2.1 Level AA standards, prioritizing inclusive design and clear error-handling states.",
-    imageUrl: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1200&auto=format&fit=crop",
-  }
+  id: "3",
+  title: "Appointment Scheduling System",
+  problem: "Patients often experience long wait times and uncertainty due to inefficient appointment scheduling, lack of real-time updates, and poor communication between clinics and patients.",
+  stack: ["React", "Express.js", "Node.js","MongoDB"],
+  role: "Team Lead, Backend Developer",
+  impact: "Developed a patient-centric appointment system that streamlined scheduling and reduced perceived waiting time by providing real-time appointment status, automated notifications, and optimized backend scheduling logic. Improved transparency and reduced missed appointments through clear status updates and validation flows.",
+  imageUrl: "./public/assets/project3.png",
+}
+
 ];
 
 export const SKILLS: SkillCategory[] = [

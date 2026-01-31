@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
   const [activeSection, setActiveSection] = useState('hero');
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   useEffect(() => {
     if (darkMode) {
@@ -169,13 +170,16 @@ const App: React.FC = () => {
               <div className="p-8 flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                 <p className="text-sm text-zinc-500 flex-1 font-medium leading-relaxed italic">"{project.problem}"</p>
-                <div className="flex items-center gap-4 pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="Live Demo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                  </a>
-                  <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  </a>
+                <div className="flex items-center justify-between pt-6 border-t border-zinc-100 dark:border-zinc-800">
+                  <div className="flex items-center gap-4">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="Live Demo">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </a>
+                    <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="GitHub">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    </a>
+                  </div>
+                  <button onClick={() => setSelectedProject(project.id)} className="text-[12px] font-bold uppercase tracking-widest text-accent hover:underline transition-colors">View More</button>
                 </div>
               </div>
             </div>
@@ -467,8 +471,75 @@ const App: React.FC = () => {
           </p>
         </div>
       </footer>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => setSelectedProject(null)}>
+          <div className="bg-white dark:bg-zinc-950 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            {PROJECTS.find(p => p.id === selectedProject) && (
+              <div className="p-8 md:p-12">
+                {(() => {
+                  const project = PROJECTS.find(p => p.id === selectedProject);
+                  return (
+                    <>
+                      <div className="flex justify-between items-start mb-8">
+                        <h2 className="text-4xl font-bold">{project?.title}</h2>
+                        <button onClick={() => setSelectedProject(null)} className="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
+                      </div>
+                      
+                      <div className="mb-8">
+                        <img src={project?.imageUrl} alt={project?.title} className="w-full h-64 object-cover rounded-2xl mb-6" />
+                      </div>
+
+                      <div className="space-y-8">
+                        <div>
+                          <h3 className="text-lg font-bold text-accent mb-3">Problem Statement</h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.problem}</p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-bold text-accent mb-3">Solution & Impact</h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.impact}</p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-bold text-accent mb-3">Role</h3>
+                          <p className="text-zinc-700 dark:text-zinc-300">{project?.role}</p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-bold text-accent mb-3">Tech Stack</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {project?.stack.map(s => (
+                              <span key={s} className="px-4 py-2 bg-accent/10 border border-accent/30 rounded-lg text-accent font-semibold text-sm">
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex gap-4 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+                          <a href={project?.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all text-center">
+                            Live Demo
+                          </a>
+                          <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 border-2 border-zinc-200 dark:border-zinc-800 hover:border-accent text-zinc-900 dark:text-zinc-100 font-bold rounded-xl transition-all text-center">
+                            View Code
+                          </a>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
 
 export default App;
