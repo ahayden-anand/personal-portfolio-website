@@ -541,15 +541,31 @@ const App: React.FC = () => {
                       </div>
 
                       <div className="space-y-8">
-                        <div>
-                          <h3 className="text-lg font-bold text-accent mb-3">Problem Statement</h3>
-                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.problem}</p>
-                        </div>
+                        {(project?.id === '6' || project?.id === '7') ? (
+                          <>
+                            <div>
+                              <h3 className="text-lg font-bold text-accent mb-3">About {project?.title}</h3>
+                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.problem}</p>
+                            </div>
 
-                        <div>
-                          <h3 className="text-lg font-bold text-accent mb-3">Solution & Impact</h3>
-                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.impact}</p>
-                        </div>
+                            <div>
+                              <h3 className="text-lg font-bold text-accent mb-3">Contribution</h3>
+                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.impact}</p>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div>
+                              <h3 className="text-lg font-bold text-accent mb-3">Problem Statement</h3>
+                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.problem}</p>
+                            </div>
+
+                            <div>
+                              <h3 className="text-lg font-bold text-accent mb-3">Solution & Impact</h3>
+                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.impact}</p>
+                            </div>
+                          </>
+                        )}
 
                         <div>
                           <h3 className="text-lg font-bold text-accent mb-3">Role</h3>

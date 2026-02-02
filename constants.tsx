@@ -16,6 +16,24 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+  id: "6",
+  title: " Inkflow Creative",
+  problem: "Inkflow Creative is a company that specializes in professional queue management printing solutions and high-quality marketing collaterals designed to help businesses streamline operations and enhance customer experience.",
+  stack: ["React", "Express.js", "Node.js","CSS3","Responsive Design","Performance Optimization","Postgres"],
+  role: "Personal Project",
+  impact: "Evochat is an intelligent AI-powered chatbot designed to deliver natural, real-time conversations and personalized responses. It enhances user engagement by providing quick assistance, adaptive interactions, and a scalable backend architecture, making digital communication more efficient and intuitive.",
+  imageUrl: './assets/project6.png'
+},
+  {
+  id: "7",
+  title: "RoboAiQ",
+  problem: "RoboAiQ is a robotics-focused organization dedicated to empowering future entrepreneurs by leveraging intelligent technologies. The organization focuses on innovation, education, and scalable digital solutions.",
+  stack: ["React", "CSS3","Typescript","SEO","Responsive Design","Performance Optimization","N8N Integration","Google workflow"],
+  role: "Project Intern",
+  impact: "Designed and developed the official website for RoboAiQ as a paid (stipend-based) project intern. This engagement strengthened the organization’s digital presence and led to continued involvement in future collaborations and upcoming projects with the RoboAiQ team.",
+  imageUrl: "./assets/project7.png"
+},
+  {
   id: "1",
   title: "Personal Portfolio Website",
   problem: "Developers often struggle to present their skills, projects, and experience in a clear, professional, and easily accessible way across devices.",
@@ -25,7 +43,37 @@ export const PROJECTS: Project[] = [
   imageUrl: "./assets/project1.png",
   liveUrl: "https://ahayden-anand.github.io/personal-portfolio-website/",
   githubUrl: "https://github.com/ahayden-anand/personal-portfolio-website.git"
+},{
+  id: "5",
+  title: "Evochat – AI Chatbot",
+  problem: "Many users struggle to find fast, reliable, and engaging conversational tools that can assist with everyday questions, productivity, and real-time support. Existing chat systems are often rigid, lack intelligence, or fail to provide meaningful interactions.",
+  stack: ["React", "Express.js", "Gemini API"],
+  role: "Personal Project",
+  impact: "Evochat is an intelligent AI-powered chatbot designed to deliver natural, real-time conversations and personalized responses. It enhances user engagement by providing quick assistance, adaptive interactions, and a scalable backend architecture, making digital communication more efficient and intuitive.",
+  githubUrl: "https://github.com/ahayden-anand/evochat-ai.git",
+  imageUrl: "./assets/project5.png",
 },
+  {
+  id: "3",
+  title: "Appointment Mangement System",
+  problem: "Patients often experience long wait times and uncertainty due to inefficient appointment scheduling, lack of real-time updates, and poor communication between clinics and patients.",
+  stack: ["React", "Express.js", "Node.js","MongoDB"],
+  role: "Team Lead, Backend Developer",
+  impact: "Developed a patient-centric appointment system that streamlined scheduling and reduced perceived waiting time by providing real-time appointment status, automated notifications, and optimized backend scheduling logic. Improved transparency and reduced missed appointments through clear status updates and validation flows.",
+  imageUrl: "./assets/project3.png",
+  githubUrl: "https://github.com/ahayden-anand/med-core.git"
+},
+{
+  id: "4",
+  title: "Smart Lecture Assitant",
+  problem: "Many learners with disabilities face barriers in accessing lecture content due to non-inclusive design, limited accessibility features, and poor content adaptability, making it difficult to learn independently and effectively.",
+  stack: ["React", "Express.js", "Node.js","Rest API"],
+  role: "Team Lead, Backend Developer",
+  impact: "An accessibility-focused learning assistant designed to support people with disabilities by making lecture content easier to access, understand, and interact with. The platform helps reduce learning barriers through inclusive design, simplified navigation, and assistive features that promote independent and equitable education.",
+  githubUrl: "https://github.com/ahayden-anand/Smart_Lecture_Assistant.git",
+  imageUrl: "./assets/project4.png",
+},
+
   {
     id: "2",
     title: "Restaurant landing page UI",
@@ -38,26 +86,9 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/ahayden-anand/Restaurant-Web-UI.git"
   },
 
-  {
-  id: "3",
-  title: "Appointment Mangement System",
-  problem: "Patients often experience long wait times and uncertainty due to inefficient appointment scheduling, lack of real-time updates, and poor communication between clinics and patients.",
-  stack: ["React", "Express.js", "Node.js","MongoDB"],
-  role: "Team Lead, Backend Developer",
-  impact: "Developed a patient-centric appointment system that streamlined scheduling and reduced perceived waiting time by providing real-time appointment status, automated notifications, and optimized backend scheduling logic. Improved transparency and reduced missed appointments through clear status updates and validation flows.",
-  imageUrl: "./assets/project3.png",
-  githubUrl: "https://github.com/ahayden-anand/med-core.git"
-},
- {
-  id: "4",
-  title: "Smart Lecture Assitant",
-  problem: "Many learners with disabilities face barriers in accessing lecture content due to non-inclusive design, limited accessibility features, and poor content adaptability, making it difficult to learn independently and effectively.",
-  stack: ["React", "Express.js", "Node.js","MongoDB"],
-  role: "Team Lead, Backend Developer",
-  impact: "An accessibility-focused learning assistant designed to support people with disabilities by making lecture content easier to access, understand, and interact with. The platform helps reduce learning barriers through inclusive design, simplified navigation, and assistive features that promote independent and equitable education.",
-  githubUrl: "https://github.com/ahayden-anand/Smart_Lecture_Assistant.git",
-  imageUrl: "./assets/project4.png",
-}
+
+ 
+
 
 ];
 
