@@ -5,10 +5,12 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { 
   PERSONAL_INFO, 
   PROJECTS, 
+  INTERNSHIP_PROJECTS,
   SKILLS, 
   EXPERIENCES, 
   CERTIFICATIONS,
-  EDUCATION
+  EDUCATION,
+  ACHIEVEMENTS
 } from './constants';
 
 const App: React.FC = () => {
@@ -123,8 +125,9 @@ const App: React.FC = () => {
               <a href="#work" className="px-10 py-4 bg-accent hover:bg-accent-hover text-white rounded-xl font-bold transition-all shadow-xl shadow-accent/20 hover:-translate-y-1">
                 Explore Projects
               </a>
-              <a href="#contact" className="px-10 py-4 rounded-xl border-2 border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 font-bold transition-all hover:-translate-y-1">
-                Contact Me
+              <a href="./A HAYDEN ANAND.pdf" download className="px-10 py-4 rounded-xl border-2 border-accent/40 hover:border-accent hover:bg-accent/10 font-bold transition-all hover:-translate-y-1 flex items-center gap-2 text-accent">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                Download Resume
               </a>
             </div>
           </div>
@@ -224,6 +227,49 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Internship Projects Section */}
+      <section className="py-32 px-6 bg-zinc-100 dark:bg-zinc-900/50 max-w-6xl mx-auto">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl font-black mb-6 tracking-tight">Internship Projects<span className="text-accent">.</span></h2>
+          <p className="text-xl text-zinc-500 max-w-2xl mx-auto">Real-world client projects delivering production-grade solutions and professional experience.</p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+          {INTERNSHIP_PROJECTS.map((project) => (
+            <div key={project.id} className="group rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-accent/40 transition-all flex flex-col hover:shadow-2xl">
+              <div className="relative h-48 overflow-hidden">
+                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                   <div className="flex flex-wrap gap-2">
+                     {project.stack.map(s => <span key={s} className="text-[10px] font-bold uppercase tracking-widest bg-accent text-white px-2.5 py-1 rounded-full">{s}</span>)}
+                   </div>
+                </div>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 flex-1 font-medium leading-relaxed mb-4">{project.role}</p>
+                <p className="text-sm text-zinc-500 flex-1 font-medium leading-relaxed italic">"{project.impact}"</p>
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800 mt-4">
+                  <div className="flex items-center gap-4">
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="Live Demo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-accent dark:hover:text-accent transition-colors" title="GitHub Repository">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                      </a>
+                    )}
+                  </div>
+                  <button onClick={() => setSelectedProject(project.id)} className="text-[12px] font-bold uppercase tracking-widest text-accent hover:underline transition-colors">View More</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Experience Section */}
       <section id="journey" className="py-32 px-6 bg-zinc-100 dark:bg-zinc-900/50">
         <div className="max-w-4xl mx-auto">
@@ -260,34 +306,121 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Certifications & Achievements Section */}
+      {/* Achievements Section */}
+      <section className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-black mb-4 tracking-tight">Certifications & Awards<span className="text-accent">.</span></h2>
+            <p className="text-zinc-500 text-lg">Professional credentials and recognition for internship work.</p>
+          </div>
+          
+          {/* Certificate Gallery */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {ACHIEVEMENTS.map((achievement) => (
+              <div key={achievement.id} className="group">
+                {achievement.certificateUrl ? (
+                  <div className="relative rounded-3xl overflow-hidden border-2 border-accent/40 shadow-lg hover:shadow-2xl transition-all hover:border-accent/60 h-96">
+                    <img 
+                      src={achievement.certificateUrl} 
+                      alt={achievement.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-white font-black text-lg mb-1">{achievement.title}</h3>
+                      <p className="text-accent font-bold text-sm mb-2">{achievement.organization} • {achievement.date}</p>
+                      {achievement.highlight && (
+                        <p className="text-white/90 text-xs font-semibold flex items-center gap-2">
+                          <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                          {achievement.highlight}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-8 rounded-3xl border-2 border-accent/40 bg-accent/5 dark:bg-accent/5 hover:border-accent/60 hover:bg-accent/10 transition-all hover:shadow-xl shadow-lg">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center shrink-0 group-hover:bg-accent/30 transition-colors">
+                        <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-black mb-1 leading-tight">{achievement.title}</h3>
+                        <p className="text-sm text-accent font-bold">{achievement.organization} • {achievement.date}</p>
+                      </div>
+                    </div>
+                    <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed font-medium">{achievement.description}</p>
+                    {achievement.highlight && (
+                      <div className="pt-4 border-t border-accent/20">
+                        <p className="text-sm font-bold text-accent flex items-center gap-2">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                          {achievement.highlight}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
       <section className="py-32 px-6 bg-zinc-50 dark:bg-zinc-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-black mb-4 tracking-tight">Certifications & Achievements<span className="text-accent">.</span></h2>
+            <h2 className="text-4xl font-black mb-4 tracking-tight">Certifications & Credentials<span className="text-accent">.</span></h2>
             <p className="text-zinc-500 text-lg max-w-2xl mx-auto">Verified credentials from industry leaders validating my technical foundations.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {CERTIFICATIONS.map((cert, i) => (
-              <div key={i} className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-accent/40 transition-all hover:shadow-2xl group flex flex-col">
-                <div className="w-14 h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-900 mb-8 flex items-center justify-center group-hover:bg-accent/10 transition-colors shadow-sm">
-                  <svg className="w-7 h-7 text-zinc-400 group-hover:text-accent transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-xl font-bold mb-2 leading-tight dark:text-zinc-100">{cert.name}</h4>
-                  <p className="text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-6">{cert.issuer} • {cert.date}</p>
-                </div>
-                {cert.link && (
-                  <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800 mt-6">
-                    <a 
-                      href={cert.link} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="text-[12px] font-black uppercase tracking-widest text-accent hover:text-accent-hover transition-colors flex items-center gap-2 group/link"
-                    >
-                      Verify Credential
-                      <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                    </a>
+              <div key={i} className="group">
+                {cert.imageUrl ? (
+                  <div className="relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-accent/40 hover:border-accent/60 h-80">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={cert.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-6 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                      <h4 className="text-white font-black text-lg mb-1">{cert.name}</h4>
+                      <p className="text-accent font-bold text-sm">{cert.issuer} • {cert.date}</p>
+                      {cert.link && (
+                        <a 
+                          href={cert.link} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="text-[12px] font-black uppercase tracking-widest text-white/90 hover:text-accent transition-colors flex items-center gap-2 mt-3 group/link"
+                        >
+                          Verify
+                          <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-8 rounded-3xl border-2 border-accent/40 bg-white dark:bg-zinc-950 hover:border-accent/60 transition-all hover:shadow-2xl shadow-lg flex flex-col">
+                    <div className="w-14 h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-900 mb-8 flex items-center justify-center group-hover:bg-accent/10 transition-colors shadow-sm">
+                      <svg className="w-7 h-7 text-zinc-400 group-hover:text-accent transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold mb-2 leading-tight dark:text-zinc-100">{cert.name}</h4>
+                      <p className="text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-6">{cert.issuer} • {cert.date}</p>
+                    </div>
+                    {cert.link && (
+                      <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800 mt-6">
+                        <a 
+                          href={cert.link} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="text-[12px] font-black uppercase tracking-widest text-accent hover:text-accent-hover transition-colors flex items-center gap-2 group/link"
+                        >
+                          Verify Credential
+                          <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -522,87 +655,101 @@ const App: React.FC = () => {
       {/* Project Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => setSelectedProject(null)}>
-          <div className="bg-white dark:bg-zinc-950 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            {PROJECTS.find(p => p.id === selectedProject) && (
-              <div className="p-8 md:p-12">
-                {(() => {
-                  const project = PROJECTS.find(p => p.id === selectedProject);
-                  return (
-                    <>
-                      <div className="flex justify-between items-start mb-8">
-                        <h2 className="text-4xl font-bold">{project?.title}</h2>
-                        <button onClick={() => setSelectedProject(null)} className="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                        </button>
-                      </div>
-                      
-                      <div className="mb-8">
-                        <img src={project?.imageUrl} alt={project?.title} className="w-full h-64 object-cover rounded-2xl mb-6" />
-                      </div>
+          <div className="bg-white dark:bg-zinc-950 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            {(() => {
+              const project = PROJECTS.find(p => p.id === selectedProject) || INTERNSHIP_PROJECTS.find(p => p.id === selectedProject);
+              if (!project) return null;
+              
+              const isInternship = project.id === '6' || project.id === '7';
+              
+              return (
+                <div className="p-8 md:p-12">
+                  <div className="flex justify-between items-start mb-8">
+                    <h2 className="text-4xl font-bold">{project.title}</h2>
+                    <button onClick={() => setSelectedProject(null)} className="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                  </div>
+                  
+                  <div className="mb-8">
+                    <img src={project.imageUrl} alt={project.title} className="w-full h-80 object-cover rounded-2xl mb-6" />
+                  </div>
 
-                      <div className="space-y-8">
-                        {(project?.id === '6' || project?.id === '7') ? (
-                          <>
-                            <div>
-                              <h3 className="text-lg font-bold text-accent mb-3">About {project?.title}</h3>
-                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.problem}</p>
-                            </div>
+                  <div className="space-y-10">
+                    {isInternship ? (
+                      <>
+                        <div className="bg-accent/5 border border-accent/20 rounded-2xl p-8">
+                          <h3 className="text-lg font-bold text-accent mb-3 uppercase tracking-widest flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Company Overview
+                          </h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg">{project.problem}</p>
+                        </div>
 
-                            <div>
-                              <h3 className="text-lg font-bold text-accent mb-3">Contribution</h3>
-                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.impact}</p>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div>
-                              <h3 className="text-lg font-bold text-accent mb-3">Problem Statement</h3>
-                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.problem}</p>
-                            </div>
+                        <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-2xl p-8">
+                          <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-3 uppercase tracking-widest flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6l-4-4m0 0L8 6m4-4v4m6 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            My Role & Responsibilities
+                          </h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg font-semibold mb-4">{project.role}</p>
+                        </div>
 
-                            <div>
-                              <h3 className="text-lg font-bold text-accent mb-3">Solution & Impact</h3>
-                              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project?.impact}</p>
-                            </div>
-                          </>
-                        )}
+                        <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-2xl p-8">
+                          <h3 className="text-lg font-bold text-green-600 dark:text-green-400 mb-3 uppercase tracking-widest flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Key Contributions & Impact
+                          </h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg">{project.impact}</p>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div>
+                          <h3 className="text-lg font-bold text-accent mb-3">Problem Statement</h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project.problem}</p>
+                        </div>
 
                         <div>
-                          <h3 className="text-lg font-bold text-accent mb-3">Role</h3>
-                          <p className="text-zinc-700 dark:text-zinc-300">{project?.role}</p>
+                          <h3 className="text-lg font-bold text-accent mb-3">Solution & Impact</h3>
+                          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{project.impact}</p>
                         </div>
+                      </>
+                    )}
 
-                        <div>
-                          <h3 className="text-lg font-bold text-accent mb-3">Tech Stack</h3>
-                          <div className="flex flex-wrap gap-2">
-                            {project?.stack.map(s => (
-                              <span key={s} className="px-4 py-2 bg-accent/10 border border-accent/30 rounded-lg text-accent font-semibold text-sm">
-                                {s}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-accent mb-3">Role</h3>
+                      <p className="text-zinc-700 dark:text-zinc-300">{project.role}</p>
+                    </div>
 
-                        <div className="flex gap-4 pt-6 border-t border-zinc-200 dark:border-zinc-800">
-                          {project?.liveUrl ? (
-                            <a href={project?.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all text-center">
-                              Live Demo
-                            </a>
-                          ) : (
-                            <div className="flex-1"></div>
-                          )}
-                          {project?.githubUrl && (
-                            <a href={project?.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 border-2 border-zinc-200 dark:border-zinc-800 hover:border-accent text-zinc-900 dark:text-zinc-100 font-bold rounded-xl transition-all text-center">
-                              View Code
-                            </a>
-                          )}
-                        </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-accent mb-3">Tech Stack</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {project.stack.map(s => (
+                          <span key={s} className="px-4 py-2 bg-accent/10 border border-accent/30 rounded-lg text-accent font-semibold text-sm">
+                            {s}
+                          </span>
+                        ))}
                       </div>
-                    </>
-                  );
-                })()}
-              </div>
-            )}
+                    </div>
+
+                    <div className="flex gap-4 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+                      {project.liveUrl ? (
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all text-center">
+                          Live Demo
+                        </a>
+                      ) : (
+                        <div className="flex-1"></div>
+                      )}
+                      {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 px-6 py-3 border-2 border-zinc-200 dark:border-zinc-800 hover:border-accent text-zinc-900 dark:text-zinc-100 font-bold rounded-xl transition-all text-center">
+                          View Code
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       )}

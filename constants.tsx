@@ -1,12 +1,11 @@
-
 import React from 'react';
-import { Project, Experience, SkillCategory, Certification, Education } from './types';
+import { Project, Experience, SkillCategory, Certification, Education, Achievement } from './types';
 
 export const PERSONAL_INFO = {
   name: "Hayden Anand",
-  role: "Computer Science Engineering Student | Aspiring Software Engineer",
-  valueProp: "A Computer Science Engineering student focused on core CS fundamentals, modern web development, and turning academic knowledge into real-world applications.",
-  bio: "I am a first-year Computer Science Engineering student at Karunya Institute of Technology and Sciences with a deep-seated interest in engineering scalable systems. My journey is defined by a blend of disciplined academic rigor and a curiosity for emerging technologies. I focus on bridging the gap between theoretical computer science and practical, real-world application, constantly seeking to refine my problem-solving toolkit through active building and community collaboration.",
+  role: "Computer Science Engineering Student",
+  valueProp: "Focused on data structures, scalable systems, and production-grade web applications. Experienced in building full-stack and frontend projects with an emphasis on clean architecture, performance, and real-world problem solving. Actively seeking challenging software engineering internships.",
+  bio: "Computer Science Engineering student at Karunya Institute of Technology and Sciences with a strong foundation in core CS subjects including programming, data structures, and system-level thinking. Hands-on experience building and deploying web applications using modern frameworks, with a focus on maintainable code, performance optimization, and learning through iteration and collaboration.",
   email: "ahayden.anand@gmail.com",
   phone: "+91 6380669179",
   linkedIn: "https://linkedin.com/in/haydenanand",
@@ -14,25 +13,8 @@ export const PERSONAL_INFO = {
   avatar: "./assets/profile.png"
 };
 
+
 export const PROJECTS: Project[] = [
-  {
-  id: "6",
-  title: " Inkflow Creative",
-  problem: "Inkflow Creative is a company that specializes in professional queue management printing solutions and high-quality marketing collaterals designed to help businesses streamline operations and enhance customer experience.",
-  stack: ["React", "Express.js", "Node.js","CSS3","Responsive Design","Performance Optimization","Postgres"],
-  role: "Personal Project",
-  impact: "Evochat is an intelligent AI-powered chatbot designed to deliver natural, real-time conversations and personalized responses. It enhances user engagement by providing quick assistance, adaptive interactions, and a scalable backend architecture, making digital communication more efficient and intuitive.",
-  imageUrl: './assets/project6.png'
-},
-  {
-  id: "7",
-  title: "RoboAiQ",
-  problem: "RoboAiQ is a robotics-focused organization dedicated to empowering future entrepreneurs by leveraging intelligent technologies. The organization focuses on innovation, education, and scalable digital solutions.",
-  stack: ["React", "CSS3","Typescript","SEO","Responsive Design","Performance Optimization","N8N Integration","Google workflow"],
-  role: "Project Intern",
-  impact: "Designed and developed the official website for RoboAiQ as a paid (stipend-based) project intern. This engagement strengthened the organization’s digital presence and led to continued involvement in future collaborations and upcoming projects with the RoboAiQ team.",
-  imageUrl: "./assets/project7.png"
-},
   {
   id: "1",
   title: "Personal Portfolio Website",
@@ -52,14 +34,15 @@ export const PROJECTS: Project[] = [
   impact: "Evochat is an intelligent AI-powered chatbot designed to deliver natural, real-time conversations and personalized responses. It enhances user engagement by providing quick assistance, adaptive interactions, and a scalable backend architecture, making digital communication more efficient and intuitive.",
   githubUrl: "https://github.com/ahayden-anand/evochat-ai.git",
   imageUrl: "./assets/project5.png",
-},
-  {
+}
+,
+ {
   id: "3",
-  title: "Appointment Mangement System",
-  problem: "Patients often experience long wait times and uncertainty due to inefficient appointment scheduling, lack of real-time updates, and poor communication between clinics and patients.",
-  stack: ["React", "Express.js", "Node.js","MongoDB"],
+  title: "Appointment Management System",
+  problem: "Manual appointment scheduling in clinics leads to long wait times, missed appointments, and poor communication between patients and staff.",
+  stack: ["React", "Node.js", "Express.js", "MongoDB"],
   role: "Team Lead, Backend Developer",
-  impact: "Developed a patient-centric appointment system that streamlined scheduling and reduced perceived waiting time by providing real-time appointment status, automated notifications, and optimized backend scheduling logic. Improved transparency and reduced missed appointments through clear status updates and validation flows.",
+  impact: "Designed and implemented a full-stack appointment system with real-time status updates and backend validation logic. Built REST APIs to handle concurrent bookings, designed MongoDB schemas for scheduling consistency, and reduced missed appointments through automated notifications and clear status tracking.",
   imageUrl: "./assets/project3.png",
   githubUrl: "https://github.com/ahayden-anand/med-core.git"
 },
@@ -72,43 +55,62 @@ export const PROJECTS: Project[] = [
   impact: "An accessibility-focused learning assistant designed to support people with disabilities by making lecture content easier to access, understand, and interact with. The platform helps reduce learning barriers through inclusive design, simplified navigation, and assistive features that promote independent and equitable education.",
   githubUrl: "https://github.com/ahayden-anand/Smart_Lecture_Assistant.git",
   imageUrl: "./assets/project4.png",
-},
+}
 
+,
+ {
+  id: "2",
+  title: "Restaurant landing page UI",
+  problem: "Traditional digital menus lack the high-fidelity branding and interactive feedback required for premium dining.",
+  stack: ["HTML5", "CSS3 (Grid/Flex)", "JavaScript"],
+  role: "Product Designer",
+  impact: "Built a sophisticated, high-performance web interface featuring complex layout transitions and optimized asset loading, ensuring a seamless luxury experience.",
+  imageUrl: "./assets/project2.png",
+  liveUrl: "https://ahayden-anand.github.io/Restaurant-Web-UI/",
+  githubUrl: "https://github.com/ahayden-anand/Restaurant-Web-UI.git"
+ }
+];
+
+export const INTERNSHIP_PROJECTS: Project[] = [
   {
-    id: "2",
-    title: "Restaurant landing page UI",
-    problem: "Traditional digital menus lack the high-fidelity branding and interactive feedback required for premium dining.",
-    stack: ["HTML5", "CSS3 (Grid/Flex)", "JavaScript"],
-    role: "Product Designer",
-    impact: "Built a sophisticated, high-performance web interface featuring complex layout transitions and optimized asset loading, ensuring a seamless luxury experience.",
-    imageUrl: "./assets/project2.png",
-    liveUrl: "https://ahayden-anand.github.io/Restaurant-Web-UI/",
-    githubUrl: "https://github.com/ahayden-anand/Restaurant-Web-UI.git"
-  },
-
-
- 
-
-
+  id: "6",
+  title: "Inkflow Creative",
+  problem: "Client organization struggled with outdated queue management and inconsistent marketing collaterals negatively impacting customer experience and operational efficiency.",
+  stack: ["React", "Node.js", "Express.js", "PostgreSQL", "CSS3"],
+  role: "Internship Trainee - Full Stack Developer",
+  impact: "Developed a responsive, production-optimized website as an internship project to strengthen Inkflow Creative's digital presence. Implemented modern UI architecture, responsive layouts, and performance optimizations that improved customer engagement and brand perception. Gained hands-on experience in full-stack web development and client collaboration.",
+  imageUrl: "./assets/project6.png"
+},
+  {
+  id: "7",
+  title: "RoboAiQ",
+  problem: "RoboAiQ required a professional digital presence to showcase their robotics platform and educational initiatives focused on empowering future entrepreneurs through innovative technologies.",
+  stack: ["React", "CSS3","Typescript","SEO","Responsive Design","Performance Optimization","N8N Integration","Google workflow"],
+  role: "Project Intern (Paid – Stipend-Based)",
+  impact: "Designed and developed the official website for RoboAiQ as a paid internship project. Implemented SEO best practices, responsive design across all devices, and integrated N8N automation workflows. Successfully strengthened the organization's digital presence and demonstrated ability to deliver production-ready solutions, leading to continued collaboration and future project opportunities.",
+  imageUrl: "./assets/project7.png"
+}
 ];
 
 export const SKILLS: SkillCategory[] = [
   {
-    title: "Core Programming",
-    skills: ["C Programming", "Python", "Javascript", "Java (Fundamentals)"]
+    title: "Programming Languages",
+    skills: ["C", "Python", "JavaScript", "Java(Fundamentals)"]
   },
   {
-    title: "Web Technologies",
-    skills: ["HTML5 / CSS3", "JavaScript", "React", "Tailwind CSS","Bootstrap 5"]
+    title: "Web & Frameworks",
+    skills: ["React", "Node.js", "Express.js", "HTM!L5", "CSS3", "Tailwind CSS","TypeScript","Bootstrap"]
   },
   {
-    title: "AI & Tools",
-    skills: ["Gemini API", "Git & Version Control", "VS Code"]
+    title: "Tools & Platforms",
+    skills: ["Git", "REST APIs", "MongoDB", "SQL", "VS Code"]
   },
-  {
-    title: "Soft Skills",
-    skills: ["Technical Leadership", "Public Speaking", "Analytical Thinking", "Collaborative Development"]
+   {
+    title: "Soft Skills ",
+    skills: ["Public Speaking", "Leadership", "Team-collaboration", "Adaptability"],
   }
+
+
 ];
 
 export const EXPERIENCES: Experience[] = [
@@ -185,41 +187,62 @@ export const CERTIFICATIONS: Certification[] = [
     name: "Web Development Fundamentals", 
     issuer: "IBM Professional Services", 
     date: "2025",
+    imageUrl: "./assets/cert_ibm.png",
     link: "https://www.credly.com/badges/454a1f52-5182-4313-b2ce-523518d69b9d/public_url" 
   },
   { 
     name: "Python for Beginners", 
     issuer: "OpenCV University", 
     date: "2025",
+    imageUrl: "./assets/cert_python.png",
     link: "#"
   },
   { 
     name: "Programming in C", 
     issuer: "Infosys Springboard", 
     date: "2025",
+    imageUrl: "./assets/cert_c.png",
     link: "https://infyspringboard.onwingspan.com"
   },
   { 
     name: "Gemini Certified Student", 
     issuer: "Google AI Education", 
     date: "2025",
+    imageUrl: "./assets/cert_gemini.png",
     link: "https://edu.exceedlms.com/student/award/bjnYzXoWBtqZWxPzZ67J43JH"
   },
   { 
     name: "Gemini Art Forge", 
     issuer: "Google Student Ambassador Program", 
-    date: "2025"
+    date: "2025",
+    imageUrl: "./assets/cert_gemini_artforge.png"
   },
   { 
     name: "Oracle Certified AI Foundation Associate", 
     issuer: "Oracle", 
     date: "2025",
-     link:"https://catalog-education.oracle.com/ords/certview/sharebadge?id=8D75393FE3A7F8EDA217C12B1B62DE1A66D863B725498B0AE424E6056D4398CD"
+    imageUrl: "./assets/cert_oracle.png",
+    link:"https://catalog-education.oracle.com/ords/certview/sharebadge?id=8D75393FE3A7F8EDA217C12B1B62DE1A66D863B725498B0AE424E6056D4398CD"
   },
    { 
     name: "HTML, CSS, and JavaScript", 
     issuer: "Cisco Networking Academy", 
     date: "2025",
+    imageUrl: "./assets/cert_cisco.png"
   }
 ];
+
+export const ACHIEVEMENTS: Achievement[] = [
+  {
+    id: "a1",
+    title: "RoboAiQ Project Internship - Stipend Award",
+    organization: "RoboAiQ",
+    date: "2026",
+    description: "Successfully completed a paid internship project as a web developer, delivering a production-ready website for RoboAiQ with SEO optimization, responsive design, and N8N workflow integration.",
+    highlight: "Earned competitive stipend for professional-grade work on robotics education platform",
+    certificateUrl: "./assets/award.png"
+  },
+
+];
+
 

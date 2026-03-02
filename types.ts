@@ -38,4 +38,15 @@ export interface Certification {
   issuer: string;
   date: string;
   link?: string;
+  imageUrl?: string;
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  organization: string;
+  date: string;
+  description: string;
+  highlight?: string;
+  certificateUrl?: string;
 }
