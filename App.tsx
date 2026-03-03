@@ -228,10 +228,11 @@ const App: React.FC = () => {
       </section>
 
       {/* Internship Projects Section */}
-      <section className="py-32 px-6 bg-zinc-100 dark:bg-zinc-900/50 max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-black mb-6 tracking-tight">Internship Projects<span className="text-accent">.</span></h2>
-          <p className="text-xl text-zinc-500 max-w-2xl mx-auto">Real-world client projects delivering production-grade solutions and professional experience.</p>
+      <section className="py-32 px-6 bg-white dark:bg-zinc-950 w-full">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+          <h2 className="text-4xl font-black mb-6 tracking-tight text-zinc-900 dark:text-white">Internship Projects<span className="text-accent">.</span></h2>
+          <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">Real-world client projects delivering production-grade solutions and professional experience.</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
@@ -268,6 +269,7 @@ const App: React.FC = () => {
             </div>
           ))}
         </div>
+        </div>
       </section>
 
       {/* Experience Section */}
@@ -300,65 +302,6 @@ const App: React.FC = () => {
                     </span>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Achievements Section */}
-      <section className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-black mb-4 tracking-tight">Certifications & Awards<span className="text-accent">.</span></h2>
-            <p className="text-zinc-500 text-lg">Professional credentials and recognition for internship work.</p>
-          </div>
-          
-          {/* Certificate Gallery */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {ACHIEVEMENTS.map((achievement) => (
-              <div key={achievement.id} className="group">
-                {achievement.certificateUrl ? (
-                  <div className="relative rounded-3xl overflow-hidden border-2 border-accent/40 shadow-lg hover:shadow-2xl transition-all hover:border-accent/60 h-96">
-                    <img 
-                      src={achievement.certificateUrl} 
-                      alt={achievement.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {/* Overlay at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-white font-black text-lg mb-1">{achievement.title}</h3>
-                      <p className="text-accent font-bold text-sm mb-2">{achievement.organization} • {achievement.date}</p>
-                      {achievement.highlight && (
-                        <p className="text-white/90 text-xs font-semibold flex items-center gap-2">
-                          <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                          {achievement.highlight}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-8 rounded-3xl border-2 border-accent/40 bg-accent/5 dark:bg-accent/5 hover:border-accent/60 hover:bg-accent/10 transition-all hover:shadow-xl shadow-lg">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center shrink-0 group-hover:bg-accent/30 transition-colors">
-                        <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-black mb-1 leading-tight">{achievement.title}</h3>
-                        <p className="text-sm text-accent font-bold">{achievement.organization} • {achievement.date}</p>
-                      </div>
-                    </div>
-                    <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed font-medium">{achievement.description}</p>
-                    {achievement.highlight && (
-                      <div className="pt-4 border-t border-accent/20">
-                        <p className="text-sm font-bold text-accent flex items-center gap-2">
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                          {achievement.highlight}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )}
               </div>
             ))}
           </div>
@@ -419,6 +362,65 @@ const App: React.FC = () => {
                           Verify Credential
                           <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-black mb-4 tracking-tight">Awards & Recognition<span className="text-accent">.</span></h2>
+            <p className="text-zinc-500 text-lg">Professional credentials and recognition for internship work.</p>
+          </div>
+          
+          {/* Certificate Gallery */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {ACHIEVEMENTS.map((achievement) => (
+              <div key={achievement.id} className="group">
+                {achievement.certificateUrl ? (
+                  <div className="relative rounded-3xl overflow-hidden border-2 border-accent/40 shadow-lg hover:shadow-2xl transition-all hover:border-accent/60 h-96">
+                    <img 
+                      src={achievement.certificateUrl} 
+                      alt={achievement.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-white font-black text-lg mb-1">{achievement.title}</h3>
+                      <p className="text-accent font-bold text-sm mb-2">{achievement.organization} • {achievement.date}</p>
+                      {achievement.highlight && (
+                        <p className="text-white/90 text-xs font-semibold flex items-center gap-2">
+                          <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                          {achievement.highlight}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-8 rounded-3xl border-2 border-accent/40 bg-accent/5 dark:bg-accent/5 hover:border-accent/60 hover:bg-accent/10 transition-all hover:shadow-xl shadow-lg">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center shrink-0 group-hover:bg-accent/30 transition-colors">
+                        <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-black mb-1 leading-tight">{achievement.title}</h3>
+                        <p className="text-sm text-accent font-bold">{achievement.organization} • {achievement.date}</p>
+                      </div>
+                    </div>
+                    <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed font-medium">{achievement.description}</p>
+                    {achievement.highlight && (
+                      <div className="pt-4 border-t border-accent/20">
+                        <p className="text-sm font-bold text-accent flex items-center gap-2">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                          {achievement.highlight}
+                        </p>
                       </div>
                     )}
                   </div>

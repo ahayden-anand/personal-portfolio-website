@@ -187,48 +187,54 @@ export const CERTIFICATIONS: Certification[] = [
     name: "Web Development Fundamentals", 
     issuer: "IBM Professional Services", 
     date: "2025",
-    imageUrl: "./assets/cert_ibm.png",
+    imageUrl: "./assets/ibm.png",
     link: "https://www.credly.com/badges/454a1f52-5182-4313-b2ce-523518d69b9d/public_url" 
   },
   { 
     name: "Python for Beginners", 
     issuer: "OpenCV University", 
     date: "2025",
-    imageUrl: "./assets/cert_python.png",
+    imageUrl: "./assets/open.png",
     link: "#"
   },
   { 
     name: "Programming in C", 
     issuer: "Infosys Springboard", 
     date: "2025",
-    imageUrl: "./assets/cert_c.png",
+    imageUrl: "./assets/infosys.png",
     link: "https://infyspringboard.onwingspan.com"
   },
   { 
     name: "Gemini Certified Student", 
     issuer: "Google AI Education", 
     date: "2025",
-    imageUrl: "./assets/cert_gemini.png",
+    imageUrl: "./assets/gemini.png",
     link: "https://edu.exceedlms.com/student/award/bjnYzXoWBtqZWxPzZ67J43JH"
   },
   { 
-    name: "Gemini Art Forge", 
-    issuer: "Google Student Ambassador Program", 
+    name: "Google Cloud Fundamentals", 
+    issuer: "Google Cloud", 
     date: "2025",
-    imageUrl: "./assets/cert_gemini_artforge.png"
+    imageUrl: "./assets/google_cloud.png"
+  },
+  { 
+    name: "K12 Certification", 
+    issuer: "K12 Education Program", 
+    date: "2025",
+    imageUrl: "./assets/k12.png"
   },
   { 
     name: "Oracle Certified AI Foundation Associate", 
     issuer: "Oracle", 
     date: "2025",
-    imageUrl: "./assets/cert_oracle.png",
+    imageUrl: "./assets/oracle.png",
     link:"https://catalog-education.oracle.com/ords/certview/sharebadge?id=8D75393FE3A7F8EDA217C12B1B62DE1A66D863B725498B0AE424E6056D4398CD"
   },
    { 
     name: "HTML, CSS, and JavaScript", 
     issuer: "Cisco Networking Academy", 
     date: "2025",
-    imageUrl: "./assets/cert_cisco.png"
+    imageUrl: "./assets/cisco.png"
   }
 ];
 
