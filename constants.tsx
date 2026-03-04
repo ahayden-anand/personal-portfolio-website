@@ -4,8 +4,8 @@ import { Project, Experience, SkillCategory, Certification, Education, Achieveme
 export const PERSONAL_INFO = {
   name: "Hayden Anand",
   role: "Computer Science Engineering Student",
-  valueProp: "Focused on data structures, scalable systems, and production-grade web applications. Experienced in building full-stack and frontend projects with an emphasis on clean architecture, performance, and real-world problem solving. Actively seeking challenging software engineering internships.",
-  bio: "Computer Science Engineering student at Karunya Institute of Technology and Sciences with a strong foundation in core CS subjects including programming, data structures, and system-level thinking. Hands-on experience building and deploying web applications using modern frameworks, with a focus on maintainable code, performance optimization, and learning through iteration and collaboration.",
+  valueProp: "AI/ML enthusiast and passionate about building intelligent systems and scalable digital solutions. Gaining hands-on experience in web development, machine learning, and problem-solving to create impactful technology.",
+  bio: "Computer Science Engineering student at Karunya Institute of Technology and Sciences with a strong foundation in core CS subjects including programming, data structures, and computer science fundamentals. Currently working as an Intern at Inkflow Creative, gaining hands-on experience in full-stack web development and digital operations. Experienced in building and deploying web applications using modern frameworks, with a focus on maintainable code, performance optimization, and learning through iteration and collaboration.",
   email: "ahayden.anand@gmail.com",
   phone: "+91 6380669179",
   linkedIn: "https://linkedin.com/in/haydenanand",
@@ -77,8 +77,8 @@ export const INTERNSHIP_PROJECTS: Project[] = [
   title: "Inkflow Creative",
   problem: "Client organization struggled with outdated queue management and inconsistent marketing collaterals negatively impacting customer experience and operational efficiency.",
   stack: ["React", "Node.js", "Express.js", "PostgreSQL", "CSS3"],
-  role: "Internship Trainee - Full Stack Developer",
-  impact: "Developed a responsive, production-optimized website as an internship project to strengthen Inkflow Creative's digital presence. Implemented modern UI architecture, responsive layouts, and performance optimizations that improved customer engagement and brand perception. Gained hands-on experience in full-stack web development and client collaboration.",
+  role: "Project Intern - Inkflow Creative (Sept 2025 - Present)",
+  impact: "Currently working on multiple digital products as a Project Intern at Inkflow Creative, gaining hands-on experience in digital operations and frontend development. Developing responsive, production-optimized solutions that strengthen the organization's digital presence. Implementing modern UI architecture, responsive layouts, and performance optimizations that improve customer engagement.",
   imageUrl: "./assets/project6.png"
 },
   {
